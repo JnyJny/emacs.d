@@ -1,0 +1,6 @@
+auto-save-list/*
+backup/*
+elpa/*
+network-security.data
+site-lisp/*
+*.elc

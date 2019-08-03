@@ -1,0 +1,20 @@
+;; init-bindings
+
+(global-set-key "\C-x\C-x" 'save-buffer)
+(global-set-key "\C-xk" 'kill-buffer)
+(global-set-key "\C-k" 'kill-line)
+(global-set-key "\C-y" 'yank)
+(global-set-key "\C-d" 'kill-forward-character)
+(global-set-key "\C-h" 'kill-backward-character)
+(global-set-key "\C-b" 'backward-char)
+(global-set-key "\C-f" 'forward-char)
+(global-set-key "\C-x\C-f" 'find-file)
+
+(global-set-key "\M-f" 'fill-paragraph)
+(global-set-key "\M-\ " 'set-mark-command)
+(global-set-key "\M-g" 'goto-line)
+(global-set-key "\M-w" 'copy-region-as-kill)
+(global-set-key "\M-k" 'copy-line-as-kill)
+(global-set-key "\M-r" 'replace-string)
+(global-set-key "\M-R" 'replace-regexp)
+(global-set-key "\M-=" 'count-region)
