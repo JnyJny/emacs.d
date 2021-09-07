@@ -4,3 +4,4 @@ elpa/*
 network-security.data
 site-lisp/*
 *.elc
+autosave/*
