@@ -4,6 +4,7 @@
 (require 'project)
 (require 'treesit)
 
+(declare-function completion-preview-mode "completion-preview" (&optional arg))
 (declare-function ruff-format-on-save-mode "ruff-format" (&optional arg))
 
 (add-to-list 'treesit-language-source-alist
@@ -40,6 +41,8 @@
   (when (and (executable-find "ruff")
              (require 'ruff-format nil t))
     (ruff-format-on-save-mode 1))
+  (when (fboundp 'completion-preview-mode)
+    (completion-preview-mode 1))
   (when (and (eriko-python-eglot-server)
              (project-current nil))
     (eglot-ensure)))
