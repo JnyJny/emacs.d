@@ -23,6 +23,17 @@
   (setq this-command 'kill-region)
   (setq kill-ring-yank-pointer kill-ring))
 
+(defun copy-region-to-pasteboard (start end)
+  "Copy the region from START to END to the macOS pasteboard."
+  (interactive "r")
+  (unless (executable-find "pbcopy")
+    (user-error "pbcopy not found"))
+  (let ((status (call-process-region start end "pbcopy" nil nil nil)))
+    (unless (zerop status)
+      (user-error "pbcopy failed with status %s" status)))
+  (deactivate-mark)
+  (message "Copied region to pasteboard"))
+
 (defun kill-backward-character()
   "kill instead of delete character"
   (interactive)

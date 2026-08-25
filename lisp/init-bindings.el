@@ -15,6 +15,7 @@
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-w" 'copy-region-as-kill)
 (global-set-key "\M-k" 'copy-line-as-kill)
+(global-set-key (kbd "C-c C-w") 'copy-region-to-pasteboard)
 (global-set-key "\M-r" 'replace-string)
 (global-set-key "\M-R" 'replace-regexp)
 (global-set-key "\M-=" 'count-region)
