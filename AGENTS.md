@@ -66,12 +66,9 @@ git -C "$HOME/.emacs.d" diff --check
 git -C "$HOME/.emacs.d" diff --cached --check
 ```
 
-The byte-compile command creates ignored `.elc` files. Remove them after
-validation unless Erik explicitly wants bytecode committed:
-
-```sh
-find "$HOME/.emacs.d/lisp" -name '*.elc' -delete
-```
+The byte-compile command creates or updates ignored `.elc` files. Keep those
+local cache files around for startup performance, but do not stage or commit
+them.
 
 ## Git Hygiene
 
