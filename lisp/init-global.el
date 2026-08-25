@@ -22,6 +22,8 @@
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 
+(setopt completion-styles '(basic flex partial-completion))
+
 (let ((auto-save-dir (file-name-as-directory
                       (expand-file-name "autosave" user-emacs-directory)))
       (backup-dir (file-name-as-directory

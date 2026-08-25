@@ -45,6 +45,8 @@ If Rust is not installed yet, install it with `rustup` first.
 - After first startup or archive refresh, install missing selected packages from
   inside Emacs with `M-x package-install-selected-packages`.
 - Do not commit `elpa/`; it is intentionally ignored.
+- Tree-sitter grammar libraries installed under `tree-sitter/` are local runtime
+  artifacts and are intentionally ignored.
 
 ## LSP Policy
 
@@ -72,8 +74,8 @@ them.
 
 ## Git Hygiene
 
-- Keep `.cache/`, `elpa/`, `request/`, `transient/`, autosaves, backups, and
-  `.elc` files ignored.
+- Keep `.cache/`, `elpa/`, `request/`, `transient/`, `tree-sitter/`,
+  autosaves, backups, and `.elc` files ignored.
 - If generated files were accidentally committed, remove them from the index
   with `git rm --cached`, not by deleting Erik's local runtime state.
 - Report staged generated-file untracking separately from source config edits
