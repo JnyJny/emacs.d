@@ -1,12 +1,16 @@
-;; init-elpa
+;;; init-elpa.el --- Package archive setup -*- lexical-binding: t; -*-
 
 (require 'package)
 
-(setq package-archives '(
-                        ("elpa" . "http://tromey.com/elpa/")
-                        ("gnu" . "http://elpa.gnu.org/packages/")
-                        ("marmalade" . "http://marmalade-repo.org/packages/")
-			("melpa" . "http://melpa.org/packages/")
-                        ("melpa-stable" . "http://stable.melpa.org/packages/")))
+(setq package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+        ("melpa" . "https://melpa.org/packages/")))
+(setq package-archive-priorities
+      '(("gnu" . 20)
+        ("nongnu" . 10)
+        ("melpa" . 0)))
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+;;; init-elpa.el ends here

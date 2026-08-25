@@ -1,17 +1,16 @@
-;; Fixups
+;;; init-mode-c.el --- C mode customizations -*- lexical-binding: t; -*-
 
-(add-hook 'c-mode-hook 'c-mode-fixup)
+(add-hook 'c-mode-hook #'c-mode-fixup)
 
 (defun c-mode-fixup () 
   "Erik's c-mode customizations."
-  (local-set-key "\M-m" '(lambda () 
-                           (interactive) 
-                           (save-buffer) 
-                           (compile "make")))
-  (local-set-key "\C-c\C-f" 'c-comment-template-function)
+  (local-set-key "\M-m" (lambda ()
+                          (interactive)
+                          (save-buffer)
+                          (compile "make")))
+  (local-set-key "\C-c\C-f" #'c-comment-template-function)
   ;; make sure case labels are indented in one level from switches
-  (setq c-offsets-alist (cons '(case-label . +) c-offsets-alist))
-  )
+  (c-set-offset 'case-label '+))
 
 ;; C mode customization
 
@@ -29,12 +28,12 @@
   (save-excursion
     (insert 
      "/* NAME: "
-     (if (> (chars-in-string structtype) 0)
+     (if (> (length structtype) 0)
 	 (concat  structname ", " structtype)
        (concat structname))
      "\n *\n * METHODS:\n *\n * PURPOSE:\n *\n */\n"
      )
-    (if (> (chars-in-string structtype) 0)
+    (if (> (length structtype) 0)
 	(insert "typedef struct " structname "{\n\n} " structtype ";\n")
       (insert "struct " structname "{\n\n};")))
   )
@@ -75,9 +74,9 @@ just update the Modified time."
 (defun e-date (&optional use-time)
   "Re-format the string returned by current-time-string to be:
 DD Month YY (opt hh:mm)"
-  (setq sp " ")
-  (setq s (current-time-string))
-  (concat (substring s 8 10) sp (substring s 4 7) sp (substring s 22 24)
-	  sp (if use-time (concat sp (substring s 11 16))))
-)
+  (let ((sp " ")
+        (s (current-time-string)))
+    (concat (substring s 8 10) sp (substring s 4 7) sp (substring s 22 24)
+            sp (if use-time (concat sp (substring s 11 16)) ""))))
 
+;;; init-mode-c.el ends here

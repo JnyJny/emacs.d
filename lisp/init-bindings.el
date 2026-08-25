@@ -1,4 +1,4 @@
-;; init-bindings
+;;; init-bindings.el --- Global key bindings -*- lexical-binding: t; -*-
 
 (global-set-key "\C-x\C-x" 'save-buffer)
 (global-set-key "\C-xk" 'kill-buffer)
@@ -18,3 +18,5 @@
 (global-set-key "\M-r" 'replace-string)
 (global-set-key "\M-R" 'replace-regexp)
 (global-set-key "\M-=" 'count-region)
+
+;;; init-bindings.el ends here

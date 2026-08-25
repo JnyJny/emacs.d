@@ -1,4 +1,6 @@
-;; init-global
+;;; init-global.el --- Global editing defaults -*- lexical-binding: t; -*-
+
+(require 'autorevert)
 
 ;; Tune the GC
 ;; The default settings are too conservative on modern machines making Emacs
@@ -20,9 +22,15 @@
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 
-(let ((auto-save-dir (file-name-as-directory (expand-file-name "autosave" user-emacs-directory))))
+(let ((auto-save-dir (file-name-as-directory
+                      (expand-file-name "autosave" user-emacs-directory)))
+      (backup-dir (file-name-as-directory
+                   (expand-file-name "backups" user-emacs-directory))))
+  (make-directory auto-save-dir t)
+  (make-directory backup-dir t)
   (setq auto-save-list-file-prefix (expand-file-name ".saves-" auto-save-dir))
-  (setq auto-save-file-name-transforms (list (list ".*" (replace-quote auto-save-dir) t))))
+  (setq auto-save-file-name-transforms `((".*" ,auto-save-dir t)))
+  (setq backup-directory-alist `((".*" . ,backup-dir))))
 
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
@@ -34,19 +42,14 @@
 (display-time-mode t)
 (global-font-lock-mode t)
 (column-number-mode t)
-(setq visual-bell t)
+(setq visible-bell t)
 (mapc (lambda (command) (put command 'disabled nil))
       '(erase-buffer
 	downcase-region
 	upcase-region
 	upcase-initials-region))
 
-;; Put all backup and auto-saves into ~/.emacs.d instead of cwd
-(setq backup-directory-alist
-      `((".*" . ,(expand-file-name "backup/" user-emacs-directory))))
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "backup/" user-emacs-directory) t)))
-
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+;;; init-global.el ends here

@@ -1,4 +1,4 @@
-;; init-markdown-mode
+;;; init-mode-markdown.el --- Markdown mode customizations -*- lexical-binding: t; -*-
 
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
@@ -23,3 +23,5 @@
 (defun blog-metadata-update-modified ()
   ""
   )
+
+;;; init-mode-markdown.el ends here

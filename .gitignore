@@ -1,5 +1,9 @@
+/.cache/
+/request/
+/transient/
 auto-save-list/*
 backup/*
+backups/*
 elpa/*
 network-security.data
 site-lisp/*
