@@ -1,7 +1,7 @@
 ;;; init.el --- Erik's Emacs configuration -*- lexical-binding: t; -*-
 
 (setq user-full-name "Erik O'Shaughnessy")
-(setq user-mail-address "erik.oshaughnessy@arm.com")
+(setq user-mail-address "erik.oshaughnessy@gmail.com")
 
 
 
@@ -9,9 +9,7 @@
 (require 'subr-x)
 
 (defvar eriko-exec-path-dirs
-  '("/Users/eriko/.krew/bin"
-    "/Users/eriko/.local/bin"
-    "/Users/eriko/.volt/bin"
+  '("/Users/eriko/.local/bin"
     "/Users/eriko/.cargo/bin"
     "/opt/homebrew/sbin"
     "/opt/homebrew/bin")
