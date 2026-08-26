@@ -1,9 +1,6 @@
 ;;; init.el --- Erik's Emacs configuration -*- lexical-binding: t; -*-
 
 (setq user-full-name "Erik O'Shaughnessy")
-(setq user-mail-address "erik.oshaughnessy@gmail.com")
-
-
 
 (require 'seq)
 (require 'subr-x)
