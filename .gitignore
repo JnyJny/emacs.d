@@ -10,3 +10,6 @@ site-lisp/*
 *.elc
 autosave/*
 tree-sitter/*
+/url/
+/tramp/
+/projects/
